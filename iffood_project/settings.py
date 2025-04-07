@@ -44,7 +44,14 @@ INSTALLED_APPS = [
     'pedidos',
     'pagamentos',
     'administracao',
+    
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
