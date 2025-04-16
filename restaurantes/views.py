@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .models import Restaurante, Funcionario, Produto, Cupom
 from .serializers import RestauranteSerializer, FuncionarioSerializer, ProdutoSerializer, CupomSerializer
+from django.shortcuts import render
 
 class RestauranteViewSet(viewsets.ModelViewSet):
     queryset = Restaurante.objects.all()
@@ -13,8 +14,11 @@ class FuncionarioViewSet(viewsets.ModelViewSet):
 class ProdutoViewSet(viewsets.ModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
-    filterset_fields = ['restaurante']
+    
 
 class CupomViewSet(viewsets.ModelViewSet):
     queryset = Cupom.objects.all()
     serializer_class = CupomSerializer
+    
+def homepage(request):
+    return render(request, 'restaurantes/index.html')
